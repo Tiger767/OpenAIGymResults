@@ -15,8 +15,8 @@ Trial 1
   - Mini-Batch size (Sample size from all experience): All
   - Epochs (Number of complete gradient steps): 10
 - Results
- - Average Total Reward over 100 Episodes: 2000
- - Number of Rewards of 200: 100/100
+  - Average Total Reward over 100 Episodes: 2000
+  - Number of Rewards of 200: 100/100
  
 Trial 2
 - Episodes of Random Agent (exploring): 1
@@ -33,28 +33,9 @@ Trial 2
   - Mini-Batch size (Sample size from all experience): 10000
   - Epochs (Number of complete gradient steps per episode): 1
 - Results
- - Average Total Reward over 100 Episodes: 199.59
- - Number of Rewards of 200: 99/100
- - Rewards other than 200: 159
-
-Trial 2
-- Episodes of Random Agent (exploring): 1
-- Episodes of Policy Gradient Agent (convergence episodes): 100
-- Algorithm: Policy Gradients (No Critic)
-- Actor
-  - Model: Input -> Dense(64) -> ReLu -> BatchNorm -> Dense(64) -> ReLu -> BatchNorm -> Dense(2) -> Softmax
-  - Optimizer: Adam(.003)
-- Agent Parameters
-  - Discount Rate: .99
-  - Memory: 200000 (Larger than needed)
-- Learning Parameters
-  - Batch Size: 32
-  - Mini-Batch size (Sample size from all experience): 10000
-  - Epochs (Number of complete gradient steps per episode): 1
-- Results
- - Average Total Reward over 100 Episodes: 199.59
- - Number of Rewards of 200: 99/100
- - Rewards other than 200: 159
+  - Average Total Reward over 100 Episodes: 199.59
+  - Number of Rewards of 200: 99/100
+  - Rewards other than 200: 159
 
 Trial 3
 - Episodes of Random Agent (exploring): 1
@@ -75,8 +56,8 @@ Trial 3
   - Mini-Batch size (Sample size from all experience): 10000
   - Epochs (Number of complete gradient steps per episode): 1
 - Results
- - Average Total Reward over 100 Episodes: 200
- - Number of Rewards of 200: 100/100
+  - Average Total Reward over 100 Episodes: 200
+  - Number of Rewards of 200: 100/100
 
 
 Note: The weights provided can be loaded with TensorFlow Keras, and the code below uses my AI utils package (at some point it will be released)
