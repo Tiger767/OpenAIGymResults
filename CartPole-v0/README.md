@@ -88,10 +88,7 @@ import numpy as np
 import tensorflow as tf
 from tensorflow import keras
 from utils.reinforcement import (
-    RingMemory, GymWrapper
-)
-from utils.reinforcement_agents import (
-    A2CAgent
+    PGAgent, RingMemory, GymWrapper
 )
 from utils.neural_network import (
     dense
@@ -158,7 +155,10 @@ import numpy as np
 import tensorflow as tf
 from tensorflow import keras
 from utils.reinforcement import (
-    PGAgent, RingMemory, GymWrapper
+    RingMemory, GymWrapper
+)
+from utils.reinforcement_agents import (
+    A2CAgent
 )
 from utils.neural_network import (
     dense
