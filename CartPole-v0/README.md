@@ -108,4 +108,4 @@ print(avg)
 ```
 
 Gameplay from the trial 1 agent
-![](./pg_solved_ep0+1000.mkv)
+![](./pg_solved_ep0+1000.gif)
