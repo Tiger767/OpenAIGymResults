@@ -62,6 +62,62 @@ Trial 3
 
 Note: The weights provided can be loaded with TensorFlow Keras, and the code below uses my AI utils package (at some point it will be released)
 
+Trial 1 Code
+```python
+import gym 
+import numpy as np
+import tensorflow as tf
+from tensorflow import keras
+from utils.reinforcement import (
+    PGAgent, RingMemory, GymWrapper
+)
+from utils.neural_network import (
+    dense
+)
+
+def create_amodel(state_shape, action_shape):
+    inputs = keras.layers.Input(shape=state_shape)
+    x = dense(64)(inputs)
+    x = dense(64)(x)
+    outputs = dense(action_shape[0], activation='softmax',
+                    batch_norm=False)(x)
+    
+    amodel = keras.Model(inputs=inputs,
+                         outputs=outputs)
+    # Loss provided does not matter
+    amodel.compile(optimizer=keras.optimizers.Adam(.003),
+                   loss='mse', experimental_run_tf_function=False)
+    amodel.summary()
+    return amodel
+
+solved = 195
+save_dir = 'cartpole_saves/'
+env = gym.make('CartPole-v0')
+max_steps = env._max_episode_steps  # (200)
+
+env = GymWrapper(env, (4,), (2,))
+
+policy = None
+amodel = create_amodel(env.state_shape, env.action_shape)
+agent = PGAgent(env.state_shape, env.action_shape,
+                amodel, .99, create_memory=lambda: RingMemory(200000),
+                policy=policy)
+
+agent.set_playing_data(training=False, memorizing=True, verbose=True)
+env.play_episodes(agent, 1000, max_steps, random=True,
+                  verbose=True, episode_verbose=False,
+                  render=False)
+agent.learn(batch_size=32, epochs=10)
+agent.save(save_dir, note=f'PG')
+
+agent.set_playing_data(training=False, memorizing=False, verbose=True)
+avg = env.play_episodes(agent, 100, max_steps,
+                        verbose=True, episode_verbose=False,
+                        render=False)
+print(len(agent.states))
+print(avg)
+```
+
 Trial 2 Code
 ```python
 import gym 
@@ -175,6 +231,13 @@ def create_cmodel(state_shape):
     cmodel.summary()
     return cmodel
 
+
+solved = 195
+save_dir = 'cartpole_saves/'
+env = gym.make('CartPole-v0')
+max_steps = env._max_episode_steps  # (200)
+
+env = GymWrapper(env, (4,), (2,))
 
 amodel = create_amodel(env.state_shape, env.action_shape)
 cmodel = create_cmodel(env.state_shape)
