@@ -145,8 +145,7 @@ if __name__ == '__main__':
             .01, np.prod(env.action_shape)
         )
         qmodel = create_qmodel(env.state_shape, env.action_shape)
-        agent = DQNAgent(env.state_shape, env.action_shape, policy,
-                         qmodel, .99, create_memory=lambda: RingMemory(200000),
+        agent = DQNAgent(qmodel, .99, create_memory=lambda: RingMemory(200000),
                          enable_target=True, enable_double=False, 
                          enable_PER=False)
 
@@ -180,8 +179,7 @@ if __name__ == '__main__':
     elif agent_to_use == 'A2C':
         amodel = create_amodel(env.state_shape, env.action_shape)
         cmodel = create_cmodel(env.state_shape)
-        agent = A2CAgent(env.state_shape, env.action_shape,
-                         amodel, cmodel, .99, lambda_rate=.95,
+        agent = A2CAgent(amodel, cmodel, .99, lambda_rate=.95,
                          create_memory=lambda: RingMemory(200000))
 
         agent.set_playing_data(training=False, memorizing=True)

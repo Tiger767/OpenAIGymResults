@@ -99,8 +99,7 @@ env = GymWrapper(env, (4,), (2,))
 
 policy = None
 amodel = create_amodel(env.state_shape, env.action_shape)
-agent = PGAgent(env.state_shape, env.action_shape,
-                amodel, .99, create_memory=lambda: RingMemory(200000),
+agent = PGAgent(amodel, .99, create_memory=lambda: RingMemory(200000),
                 policy=policy)
 
 agent.set_playing_data(training=False, memorizing=True, verbose=True)
@@ -155,8 +154,7 @@ env = GymWrapper(env, (4,), (2,))
 
 policy = None
 amodel = create_amodel(env.state_shape, env.action_shape)
-agent = PGAgent(env.state_shape, env.action_shape,
-                amodel, .99, create_memory=lambda: RingMemory(200000),
+agent = PGAgent(amodel, .99, create_memory=lambda: RingMemory(200000),
                 policy=policy)
 
 agent.set_playing_data(training=False, memorizing=True, verbose=True)
@@ -241,8 +239,7 @@ env = GymWrapper(env, (4,), (2,))
 
 amodel = create_amodel(env.state_shape, env.action_shape)
 cmodel = create_cmodel(env.state_shape)
-agent = A2CAgent(env.state_shape, env.action_shape,
-                 amodel, cmodel, .99, 
+agent = A2CAgent(amodel, cmodel, .99, 
                  create_memory=lambda: RingMemory(200000))
 
 agent.set_playing_data(training=False, memorizing=True, verbose=True)
