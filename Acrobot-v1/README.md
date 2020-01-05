@@ -5,9 +5,11 @@ Trial 1
 - Episodes of DQN Agent (convergence episodes): 20
 - Algorithm: Dueling DQN with target model
 - Critic
-  - Model: Input -> Dense(64) -> ReLu -> BatchNorm -> Dense(64) -> ReLu -> BatchNorm -> V:dense(1)
-                                                   |                                               -> Lambda(A+V-mean(A))
-                                                   -> Dense(64) -> ReLu -> BatchNorm -> A:dense(3)
+  - Model: 
+      - Input -> Dense(64) -> ReLu -> BatchNorm -> S
+      - S -> Dense(64) -> ReLu -> BatchNorm -> dense(1) -> V
+      - S -> Dense(64) -> ReLu -> BatchNorm -> dense(3) -> A
+      - [V, A] -> Lambda(A+V-mean(A)) -> Output
   - Optimizer: Adam(.01)
   - Loss: mean absolute error
 - Agent Parameters
