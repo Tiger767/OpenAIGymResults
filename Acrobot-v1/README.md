@@ -47,7 +47,7 @@ Trial 2
 - Agent Parameters
   - Discount Rate (gamma): .99
   - Lambda Rate (enables GAE > 0): .95
-  - Memory: 200000 (Larger than needed)
+  - Memory: 200000
 - Learning Parameters
   - Batch Size: 64
   - Mini-Batch size (Sample size from all experience): 10000
