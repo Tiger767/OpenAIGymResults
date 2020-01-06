@@ -9,11 +9,12 @@ Method 1: Hyperparameter Tuning with QAgent
 - Parameters for the tuner
   - Generations: 10 (more than 10 would be better but slower. Ex. 100)
   - Population: 10 (more than 10 would be better but slower. Ex. 1000)
-  - Selection Size: 2
+  - Selection Size: 2 (adjust accordingly)
   - Lowest Best: False (Higher average the better)
 - Results (note that tested default values were initially provided)
   - Very Slow and inefficient
   - Highest Average for Each Generation (first to last): 8.44, 8.39, 7.9, 8.33, 8.17, 8.23, 8.38, 8.37, 8.3, 8.14
+    - Yes, the averages got worse as generations increased (maybe too high of a volatility for the parameters)
   - Best parameters (in order of parameters to tune): .1, .0624, .0344, 0, .2011, .5 
 
 Method 2: Manuel Tuning with QAgent
@@ -49,7 +50,7 @@ Method 3: Using PQAgent (Allows multiple values for learning rates and discounte
     - Note: The agent with these rates was trained by "hijacking" an agent with a discounted rate of .6 and a learning rate of .5
 
 Notes on the results
-- The best result of 8.8 by method 3 and the result of 8.79 by method 2 were both outliers for the agents' performance and the environment state. For instance, the best method 2 agent result of 8.79 was above the mean for the 1000 trials by 3 to 4 standard deviation. Also, a result above 9 was achieved but the Q-table and parameters were not saved and could be assumed to be an extreme outlier.
+- The best result of 8.8 by method 3 and the result of 8.79 by method 2 were both outliers for the agents' performance and the environment state. For instance, the best method 2 agent result of 8.79 was above the mean for the 1000 trials by 3 to 4 standard deviation. Also, a result above 9 was achieved, but the Q-table and parameters were not saved and could be assumed to be an extreme outlier.
 
 
 Code for all three methods
