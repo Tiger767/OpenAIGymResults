@@ -68,10 +68,10 @@ import gym
 import numpy as np
 import tensorflow as tf
 from tensorflow import keras
-from utils.reinforcement import (
+from paiutils.reinforcement import (
     PGAgent, RingMemory, GymWrapper
 )
-from utils.neural_network import (
+from paiutils.neural_network import (
     dense
 )
 
@@ -123,10 +123,10 @@ import gym
 import numpy as np
 import tensorflow as tf
 from tensorflow import keras
-from utils.reinforcement import (
+from paiutils.reinforcement import (
     PGAgent, RingMemory, GymWrapper
 )
-from utils.neural_network import (
+from paiutils.neural_network import (
     dense
 )
 
@@ -192,10 +192,10 @@ from tensorflow import keras
 from utils.reinforcement import (
     RingMemory, GymWrapper
 )
-from utils.reinforcement_agents import (
+from paiutils.reinforcement_agents import (
     A2CAgent
 )
-from utils.neural_network import (
+from paiutils.neural_network import (
     dense
 )
 
