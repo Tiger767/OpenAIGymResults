@@ -145,7 +145,8 @@ if __name__ == '__main__':
             .01, np.prod(env.action_shape)
         )
         qmodel = create_qmodel(env.state_shape, env.action_shape)
-        agent = DQNAgent(qmodel, .99, create_memory=lambda: RingMemory(200000),
+        agent = DQNAgent(policy, qmodel, .99,
+                         create_memory=lambda: RingMemory(200000),
                          enable_target=True, enable_double=False, 
                          enable_PER=False)
 
