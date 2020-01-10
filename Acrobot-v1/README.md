@@ -58,7 +58,7 @@ Trial 2
   - Highest Score within best 100-episode: -63
   - Lowest Score within best 100-episode: -125
 
-Note: The weights provided can be loaded with TensorFlow Keras, and the code below uses my PAI-Utils package (at some point it will be released)
+Note: The weights provided can be loaded with TensorFlow Keras, and the code below uses my [PAI-Utils package](https://pypi.org/project/paiutils/)
 
 Trial 1 and 2 Code
 ```python

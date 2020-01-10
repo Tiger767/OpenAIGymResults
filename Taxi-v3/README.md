@@ -52,6 +52,7 @@ Method 3: Using PQAgent (Allows multiple values for learning rates and discounte
 Notes on the results
 - The best result of 8.8 by method 3 and the result of 8.79 by method 2 were both outliers for the agents' performance and the environment state. For instance, the best method 2 agent result of 8.79 was above the mean for the 1000 trials by 3 to 4 standard deviation. Also, a result above 9 was achieved, but the Q-table and parameters were not saved and could be assumed to be an extreme outlier.
 
+Note: The code below uses my [PAI-Utils package](https://pypi.org/project/paiutils/)
 
 Code for all three methods
 ```python

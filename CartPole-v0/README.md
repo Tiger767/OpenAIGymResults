@@ -39,8 +39,8 @@ Trial 2
 
 Trial 3
 - Episodes of Random Agent (exploring): 1
-- Episodes of Policy Gradient Agent (convergence episodes): 40
-- Algorithm: Advantage Actor Critic
+- Episodes of A2C Agent (convergence episodes): 40
+- Algorithm: Advantage Actor Critic (A2C)
 - Actor
   - Model: Input -> Dense(64) -> ReLu -> BatchNorm -> Dense(64) -> ReLu -> BatchNorm -> Dense(2) -> Softmax
   - Optimizer: Adam(.003)
@@ -60,7 +60,7 @@ Trial 3
   - Number of Rewards of 200: 100/100
 
 
-Note: The weights provided can be loaded with TensorFlow Keras, and the code below uses my AI utils package (at some point it will be released)
+Note: The weights provided can be loaded with TensorFlow Keras, and the code below uses my [PAI-Utils package](https://pypi.org/project/paiutils/)
 
 Trial 1 Code
 ```python
