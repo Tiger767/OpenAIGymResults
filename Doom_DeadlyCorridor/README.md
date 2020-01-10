@@ -5,7 +5,7 @@ Trial 1
 - Episodes of A2C Agent (convergence episodes): 1500
 - Algorithm: Advantage Actor Critic (A2C)
 - Actor
-  - Model: Input -> Conv(32) -> Conv(64) -> Conv(128) -> Conv(256) -> Conv(512) -> Flatten() -> Dense(3) -> Softmax
+  - Model: Input -> Conv(32) -> Conv(64) -> Conv(128) -> Conv(256) -> Conv(512) -> Flatten() -> Dense(7) -> Softmax
     - Conv(filter) = Conv2D(filter, kernel_size=3, strides=2) -> ReLu -> BatchNorm 
   - Optimizer: Adam(.001)
 - Critic
