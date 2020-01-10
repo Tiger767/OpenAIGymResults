@@ -9,7 +9,7 @@ Trial 1
     - Conv(filter) = Conv2D(filter, kernel_size=3, strides=2) -> ReLu -> BatchNorm 
   - Optimizer: Adam(.001)
   - Loss: mean absolute error
-  - Dataset: ~20,000 images of the environment gathered by a random (DQN) agent
+  - Dataset: ~20,000 images of the environment gathered by a random agent
   - Epochs: ~400
   - Batch Size: 32, 256
 - Actor
@@ -138,10 +138,10 @@ if __name__ == '__main__':
             env = Doom('basic', (64, 64, 1),
                        preprocess_frame_func=preprocess,
                        num_stacked_states=1)
-            # Use DQN to explore
-            qmodel = create_qmodel_conv(env.state_shape, env.action_shape)
-            agent = DQNAgent(None, qmodel, .99,
-                             create_memory=lambda: RingMemory(100000))
+            # Use PGAgent to explore with a random agent
+            amodel = create_amodel_dense(env.state_shape, env.action_shape)
+            agent = PGAgent(amodel, .99,
+                            create_memory=lambda: RingMemory(100000))
             agent.set_playing_data(training=False, memorizing=True)
             env.play_episodes(agent, 200, max_steps, random=True,
                               verbose=True, episode_verbose=False,
