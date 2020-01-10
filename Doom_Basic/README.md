@@ -61,6 +61,9 @@ Trial 2
   - Highest Score within best 100-episode: 95
   - Lowest Score within best 100-episode: 16
 
+Gameplay from the trial 2 agent
+![](./a2c_81.22_ep520.gif)
+
 Note: The weights provided can be loaded with TensorFlow Keras, and the code below uses my [PAI-Utils package](https://pypi.org/project/paiutils/)
 
 Trial 1 Code
@@ -384,6 +387,3 @@ class Doom(Environment):
     def close(self):
         self.game.close()
 ```
-
-Gameplay from the trial 2 agent
-![](./a2c_81.22_ep520.gif)
