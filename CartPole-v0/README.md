@@ -59,8 +59,40 @@ Trial 3
   - Average Total Reward over 100 Episodes: 200
   - Number of Rewards of 200: 100/100
 
+Trial 4
+- Code and weights can be found [here](https://github.com/Tiger767/PAI-Utils/blob/master/examples/reinforcement/reinforcement2.ipynb)
+- Episodes of Random Agent (exploring): 8
+- Episodes of DQN Agent (convergence episodes): 6
+- Algorithm: Dueling DQN
+- Critic
+  - Model: 
+      - Input -> Dense(32) -> ReLu -> BatchNorm -> S
+      - S -> Dense(16) -> ReLu -> BatchNorm -> dense(1) -> V
+      - S -> Dense(16) -> ReLu -> BatchNorm -> dense(2) -> A
+      - [V, A] -> Lambda(A+V-mean(A)) -> Output
+  - Optimizer: Adam(.001)
+  - Loss: mean absolute error
+- Agent Parameters
+  - Discount Rate: .99
+  - Memory: No limit
+  - Target Model: False
+  - Prioritized Experience Replay: False
+  - Double Q Learning: False
+  - Policy: Stochastic Greedy Policy
+      - Exponential Decay of stochasticity: max(.5 * (1-.1)^num_steps, .01)
+       - Steps Every Call: False
+- Learning Parameters
+  - Batch Size: 32
+  - Mini-Batch size (Sample size from all experience): 0 (All)
+  - Learns in episode (takes gradient steps per episode step): False
+  - Epochs * Repeats (Number of complete gradient steps per episode): 50 (repeats)
+  - Target Update Interval: 1 episode
+  - tau (soft target update, hard=1): 1.0
+- Results
+  - Average Total Reward over 100 Episodes: 199.46
+  - Number of Rewards of 200: 98/100
 
-Note: The weights provided can be loaded with TensorFlow Keras, and the code below uses my [PAI-Utils package](https://pypi.org/project/paiutils/)
+Note: the code for trials 1 through 3 use an outdated version of [PAI-Utils](https://pypi.org/project/paiutils/).
 
 Trial 1 Code
 ```python
